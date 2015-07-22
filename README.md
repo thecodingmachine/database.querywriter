@@ -1,8 +1,10 @@
-What is QueryWritter?
+What is QueryWriter?
 =====================
 
 QueryWritter is a PHP library that parses SQL queries, transforms those into an object representation, stores them in a 
 dependency injection container, and returns them as string. It is a [Mouf plugin](http://mouf-php.com).
+
+It is heavily based on **mouf/magic-query**. Actually, magic-query's code was extracted from query-writer. 
 
 Ok, but why would I use QueryWritter?
 -------------------------------------
