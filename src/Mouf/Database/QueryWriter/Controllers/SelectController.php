@@ -28,6 +28,7 @@ use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\InstanceProxy;
 use Mouf\Html\Utils\WebLibraryManager\WebLibrary;
 use Mouf\Html\Widgets\EvoluGrid\EvoluGridResultSet;
+use SQLParser\SqlRenderInterface;
 
 /**
  * The controller to generate automatically the Beans, Daos, etc...
@@ -69,7 +70,7 @@ class SelectController extends AbstractMoufInstanceController {
 		if ($sql != null) {
 			$this->sql = $sql;
 		} else {
-			$this->sql = $select->toSql(array(), null, 0, true);
+			$this->sql = $select->toSql(array(), null, 0, SqlRenderInterface::CONDITION_IGNORE);
 		} 
 		
 		$this->content->addFile(dirname(__FILE__)."/../../../../views/parseSql.php", $this);
