@@ -3,9 +3,11 @@
 ?>
 <h1>Create a new SQL query</h1>
 
-<?php if ($this->parseError) { ?>
+<?php if ($this->parseError) {
+    ?>
 	<div class="alert">Unable to parse SQL query</div>
-<?php } ?>
+<?php 
+} ?>
 
 <form action="doCreateQuery" method="post" class="form-horizontal">
 	<div class="control-group">
@@ -15,22 +17,22 @@
 			<span class="help-block">The name of the <code>Select</code> instance that will be created.</span>
 		</div>
 	</div>
-	
+
 	<div class="control-group">
 		<label class="control-label">SQL query*: </label>
 		<div class="controls">
 			<textarea rows=10 name="sql" class="span10" required><?php echo plainstring_to_htmlprotected($this->sql) ?></textarea>
-			<span class="help-block">You can use <strong>parameters</strong> using prepared statement notation. For instance: 
+			<span class="help-block">You can use <strong>parameters</strong> using prepared statement notation. For instance:
 			<code>select * from users where country_id = :country_id</code></span>
 		</div>
 	</div>
-	
+
 	<div class="control-group">
 		<div class="controls">
 			<button name="action" value="parse" type="submit" class="btn btn-danger">Create SQL query object</button>
 		</div>
 	</div>
-		
+
 </form>
 
 <div class="alert">If you are performing JOINs, avoid doing a `SELECT * FROM ...`. You may have

@@ -12,15 +12,19 @@
 <div class="row">
 	<div class="span6">
 		<h2>Configure parameters</h2>
-		
-		<?php foreach ($this->parameters as $parameter) { ?>
+
+		<?php foreach ($this->parameters as $parameter) {
+    ?>
 			<div class="control-group">
-				<label class="control-label"><?php echo plainstring_to_htmlprotected($parameter); ?>: </label>
+				<label class="control-label"><?php echo plainstring_to_htmlprotected($parameter);
+    ?>: </label>
 				<div class="controls">
-					<input type="text" name="parameters[<?php echo plainstring_to_htmlprotected($parameter); ?>]" value="" />
+					<input type="text" name="parameters[<?php echo plainstring_to_htmlprotected($parameter);
+    ?>]" value="" />
 				</div>
 			</div>
-		<?php } ?>
+		<?php 
+} ?>
 	</div>
 	<div class="span6">
 		<h2>Query with parameters</h2>
@@ -31,12 +35,12 @@
 <script type="text/javascript">
 function updateQuery() {
 	var jqxhr = $.ajax( "getParameterizedQuery?"+$("#parametersform").serialize() )
-	.done(function(data) { 
+	.done(function(data) {
 		$("#createdSql").text(data);
 		$('code#createdSql').each(function(i, e) {hljs.highlightBlock(e)});
 	})
-	.fail(function(jqXHR, textStatus, errorThrown) { 
-		addMessage("<pre>"+textStatus+":"+errorThrown+"</pre>", "error"); 
+	.fail(function(jqXHR, textStatus, errorThrown) {
+		addMessage("<pre>"+textStatus+":"+errorThrown+"</pre>", "error");
 	});
 }
 
@@ -75,10 +79,10 @@ $(document).ready(function() {
 	        infiniteScroll: true
 	    });
 	});
-	
+
 	/*$("#runQueryButton").click(function() {
 		$("#parametersform").trigger("submit");
 	});*/
-	
+
 });
 </script>
